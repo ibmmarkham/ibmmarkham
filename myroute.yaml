@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: mi
+spec:
+  host: mi.apps.na410.prod.nextcle.com
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: php-helloworld

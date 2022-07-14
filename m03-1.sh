@@ -1,7 +1,7 @@
 #!/bin/bash
 workDir=/home/student/local/mysql
 
-if [ -z $workDir ]
+if [ -d $workDir ]
 then
 	rm -rf $workDir
 fi
