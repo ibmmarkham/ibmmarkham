@@ -1,0 +1,19 @@
+
+FROM ubi8/ubi:8.5
+
+MAINTAINER ibmcanada chenzhan@ca.ibm.com
+
+ENV PORT 8080
+
+RUN yum -y install httpd && yum clean all
+
+RUN sed -i 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf && chown -R apache:apache /etc/httpd/logs/ && chown -R apache:apache /run/httpd/
+
+EXPOSE $PORT
+
+USER apache
+
+COPY ./src/ /var/www/html
+
+CMD ["httpd", "-D", "FOREGROUND"]
+
