@@ -12,16 +12,8 @@ podman unshare chown -R 27:27 work
 
 
 # TODO Add podman run for mysql image here
-podman run --name mysql -e MYSQL_DATABASE=items -e MYSQL_USER=user1 \
-	-e MYSQL_PASSWORD=mypa55 -e MYSQL_ROOT_PASSWORD=r00tpa55 \
-	-v $PWD/work/data:/var/lib/mysqldata \
-	-d -p 30306:3306 \
-	registry.redhat.io/rhel8/mysql-80:1
 
 sleep 9
 
 # TODO Add podman run for todonodejs image here
-podman run -d --name todoapi -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 \
-	-e MYSQL_DATABASE=items -p 30080:30080 \
-do180/todonodejs
 
